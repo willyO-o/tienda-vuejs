@@ -20,28 +20,24 @@
 
                     <li class="nav-item ms-lg-auto">
                         <RouterLink class="nav-link nav-link-icon me-2" to="/">
-                            <i class="fa fa-github me-1"></i>
                             <p class="d-inline text-sm z-index-1 font-weight-bold" data-bs-toggle="tooltip"
                                 data-bs-placement="bottom" title="Star us on Github">Inicio</p>
                         </RouterLink>
                     </li>
                     <li class="nav-item ms-lg-auto">
                         <RouterLink class="nav-link nav-link-icon me-2" to="/tienda">
-                            <i class="fa fa-github me-1"></i>
                             <p class="d-inline text-sm z-index-1 font-weight-bold" data-bs-toggle="tooltip"
                                 data-bs-placement="bottom" title="Star us on Github">Tienda</p>
                         </RouterLink>
                     </li>
                     <li class="nav-item ms-lg-auto">
                         <RouterLink class="nav-link nav-link-icon me-2" to="/quienes-somos">
-                            <i class="fa fa-github me-1"></i>
                             <p class="d-inline text-sm z-index-1 font-weight-bold" data-bs-toggle="tooltip"
                                 data-bs-placement="bottom" title="Star us on Github">Quienes Somos</p>
                         </RouterLink>
                     </li>
                     <li class="nav-item ms-lg-auto">
                         <RouterLink class="nav-link nav-link-icon me-2" to="/contacto">
-                            <i class="fa fa-github me-1"></i>
                             <p class="d-inline text-sm z-index-1 font-weight-bold" data-bs-toggle="tooltip"
                                 data-bs-placement="bottom" title="Star us on Github">Contacto</p>
                         </RouterLink>
@@ -55,9 +51,15 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-animation ms-n3 dropdown-md p-3 border-radius-lg mt-0 mt-lg-3"
                             aria-labelledby="dropdownMenuPages8">
-                            <div class="d-none d-lg-block">
+                            <div class=" d-lg-block">
+
+
+                                <CarritoCompras />
+
+                            </div>
+                            <!-- <div class="d-lg-none">
                                 <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1">
-                                    Landing Pages
+                                    Landing Pages pantalla pequeña
                                 </h6>
                                 <a href="/pages/about-us.html" class="dropdown-item border-radius-md">
                                     <span>About Us</span>
@@ -75,28 +77,7 @@
                                 <a href="/pages/sign-in.html" class="dropdown-item border-radius-md">
                                     <span>Sign In</span>
                                 </a>
-                            </div>
-                            <div class="d-lg-none">
-                                <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1">
-                                    Landing Pages
-                                </h6>
-                                <a href="/pages/about-us.html" class="dropdown-item border-radius-md">
-                                    <span>About Us</span>
-                                </a>
-                                <a href="/pages/contact-us.html" class="dropdown-item border-radius-md">
-                                    <span>Contact Us</span>
-                                </a>
-                                <a href="/pages/author.html" class="dropdown-item border-radius-md">
-                                    <span>Author</span>
-                                </a>
-                                <h6
-                                    class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1 mt-3">
-                                    Account
-                                </h6>
-                                <a href="/pages/sign-in.html" class="dropdown-item border-radius-md">
-                                    <span>Sign In</span>
-                                </a>
-                            </div>
+                            </div> -->
                         </div>
                     </li>
 
@@ -113,5 +94,7 @@
 
 
 <script setup>
+
+import CarritoCompras from '@/modules/public/components/CarritoCompras.vue';
 
 </script>

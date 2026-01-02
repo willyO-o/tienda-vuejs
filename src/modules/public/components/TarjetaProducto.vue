@@ -18,7 +18,8 @@
                 <p class="mb-0">
                     {{ extractoTexto(producto.descripcion) }}
                 </p>
-                <button type="button" class="btn bg-gradient-info btn-sm mb-0 mt-3">
+                <button @click="carritoStore.agregarAlCarrito(producto)" type="button"
+                    class="btn bg-gradient-info btn-sm mb-0 mt-3">
                     Añadir al carrito
                 </button>
             </div>
@@ -35,6 +36,13 @@
 import { defineProps } from 'vue';
 import { extractoTexto } from '@/helpers/textHelper'
 import { primeraImagen } from '@/helpers/imagenHelper'
+
+import useCarritoStore from '@/modules/public/stores/carritoStore'
+
+const carritoStore = useCarritoStore()
+
+
+
 
 
 const props = defineProps({
