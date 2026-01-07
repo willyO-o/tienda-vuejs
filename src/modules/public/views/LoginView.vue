@@ -34,26 +34,40 @@
                             </div>
                         </div>
                         <div class="card-body">
-                            <form role="form" class="text-start">
-                                <div class="input-group input-group-outline my-3">
-                                    <label class="form-label">Email</label>
-                                    <input type="email" class="form-control">
+                            <Form method="post" :validation-schema="loginValidationSchema" @submit="iniciarSesion"
+                                role="form" class="text-start">
+                                <div class="my-3">
+                                    <label class="form-label">Correo</label>
+
+                                    <div class="input-group input-group-outline ">
+                                        <Field type="email" v-model="datosUsuario.email" name="email"
+                                            class="form-control" />
+                                    </div>
+                                    <ErrorMessage name="email" class="text-danger small" />
                                 </div>
-                                <div class="input-group input-group-outline mb-3">
-                                    <label class="form-label">Password</label>
-                                    <input type="password" class="form-control">
+
+                                <div class="my-3">
+                                    <label class="form-label">Contraseña</label>
+                                    <div class="input-group input-group-outline ">
+                                        <Field type="password" v-model="datosUsuario.password" name="password"
+                                            class="form-control" />
+
+                                    </div>
+                                    <ErrorMessage name="password" class="text-danger small" />
                                 </div>
-                                <div class="form-check form-switch d-flex align-items-center mb-3">
+
+                                <div class="form-check form-switch d-flex align-items-center ">
                                     <input class="form-check-input" type="checkbox" id="rememberMe" checked>
-                                    <label class="form-check-label mb-0 ms-3" for="rememberMe">Remember me</label>
+                                    <label class="form-check-label mb-0 ms-3" for="rememberMe">Recordarme</label>
                                 </div>
                                 <div class="text-center">
-                                    <button type="button" class="btn bg-gradient-dark w-100 my-4 mb-2">Sign in</button>
+                                    <button type="submit" class="btn bg-gradient-dark w-100 my-4 mb-2">
+                                        Iniciar sesión</button>
                                 </div>
                                 <p class="mt-4 text-sm text-center">
-                                    Don't have an account?
+                                    No tienes una cuenta?
                                 </p>
-                            </form>
+                            </Form>
                         </div>
                     </div>
                 </div>
@@ -66,5 +80,48 @@
 
 
 <script setup>
+
+import { reactive } from 'vue';
+import { loginValidationSchema } from '@/modules/public/schemas/loginValidationSchema'
+import { Form, Field, ErrorMessage } from 'vee-validate'
+import { login } from '@/services/authService'
+import Swal from 'sweetalert2'
+
+
+const datosUsuario = reactive({
+    email: "administrador@gmail.com",
+    password: "123456"
+})
+
+const iniciarSesion = async () => {
+
+    try {
+        const resultado = await login(datosUsuario)
+
+        const accessToken = resultado.access_token.token
+        const refreshToken = resultado.refresh_token.token
+
+        localStorage.setItem('token', accessToken);
+        localStorage.setItem('refreshToken', refreshToken);
+
+
+
+        console.log("datos de autenticacion ", resultado);
+        Swal.fire('Bienvenido', "Ha iniciado sesión correctamente", 'success');
+
+    } catch (error) {
+
+        if (error.status === 401) {
+
+            Swal.fire('Error!', "Usuario o contraseña incorrectos", 'error');
+            return;
+        }
+
+        Swal.fire('Error!', "Error interno del servidor", 'error');
+
+    }
+
+}
+
 
 </script>
