@@ -14,10 +14,19 @@ const getProductos = async (parametros = { limit: 10, page: 1 }) => {
 
 }
 
+const getProductoId = async (idProcucto) => {
+
+    const respuesta = await axiosInstance.get('productos/' + idProcucto)
+
+    return respuesta.data
+}
+
 
 
 export {
     getProductos,
+    getProductoId,
+
 }
 
 
