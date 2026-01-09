@@ -40,7 +40,7 @@
 
 <script setup>
 
-import { defineProps, defineEmits } from 'vue';
+import { defineProps, defineEmits, computed } from 'vue';
 
 
 const emits = defineEmits(['cambiarPagina'])
@@ -60,7 +60,12 @@ const props = defineProps({
     }
 })
 
-const totalBotones = Math.ceil(props.totalItems / props.porPagina)
+const totalBotones = computed(() => {
+
+    return Math.ceil(props.totalItems / props.porPagina)
+})
+
+// const totalBotones = Math.ceil(props.totalItems / props.porPagina)
 
 const paginaCambiada = (pagina) => {
     emits('cambiarPagina', pagina)

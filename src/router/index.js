@@ -50,6 +50,38 @@ const router = createRouter({
       ]
 
     },
+    {
+      path: '/admin',
+      name: 'AdminLayout',
+      component: () => import('@/modules/admin/views/AdminLayout.vue'),
+      children: [
+        {
+          path: '',
+          name: 'Tablero',
+          component: () => import('@/modules/admin/views/TableroView.vue')
+
+        },
+        {
+          path: 'productos',
+          name: 'CrudProductos',
+          component: () => import('@/modules/admin/views/ProductoView.vue')
+        },
+        {
+          path: 'productos/crear',
+          name: 'CrearProducto',
+          component: () => import('@/modules/admin/views/FormularioProductoView.vue')
+
+
+        },
+        {
+          path: 'productos/editar/:id',
+          name: 'EditarProducto',
+          component: () => import('@/modules/admin/views/FormularioProductoView.vue')
+
+
+        }
+      ]
+    }
   ],
 })
 

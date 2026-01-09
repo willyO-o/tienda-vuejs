@@ -87,6 +87,16 @@ import { Form, Field, ErrorMessage } from 'vee-validate'
 import { login } from '@/services/authService'
 import Swal from 'sweetalert2'
 
+import { useRouter } from 'vue-router';
+
+
+
+
+
+const router = useRouter();
+
+
+
 
 const datosUsuario = reactive({
     email: "administrador@gmail.com",
@@ -106,8 +116,14 @@ const iniciarSesion = async () => {
 
 
 
-        console.log("datos de autenticacion ", resultado);
         Swal.fire('Bienvenido', "Ha iniciado sesión correctamente", 'success');
+
+        setTimeout(() => {
+
+            router.push('/admin')
+
+        }, 1500)
+
 
     } catch (error) {
 
