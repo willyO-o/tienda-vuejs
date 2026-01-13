@@ -54,6 +54,16 @@ const router = createRouter({
       path: '/admin',
       name: 'AdminLayout',
       component: () => import('@/modules/admin/views/AdminLayout.vue'),
+      meta: { requiereAutenticacion: true, rol: 'admin' },
+      beforeEnter: (to, from, next) => {
+        const token = localStorage.getItem('token')
+        if (!token) {
+          next({ name: 'Login' })
+        } else {
+          next()
+        }
+
+      },
       children: [
         {
           path: '',
@@ -77,12 +87,29 @@ const router = createRouter({
           path: 'productos/editar/:id',
           name: 'EditarProducto',
           component: () => import('@/modules/admin/views/FormularioProductoView.vue')
-
-
         }
       ]
     }
   ],
 })
+
+// router.beforeEach((to, from, next) => {
+
+//   const rol = to.meta.rol
+//   const requiereAthenticacion = to.meta.requiereAutenticacion
+//   const rolUsuario = 'admin'
+//   if (requiereAthenticacion) {
+
+//     if (rol === rolUsuario) {
+//       next()
+//     } else {
+//       next({ name: 'Inicio' })
+//     }
+
+//   } else {
+//     next()
+//   }
+
+// })
 
 export default router

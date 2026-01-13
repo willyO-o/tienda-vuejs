@@ -72,8 +72,9 @@
                                             data-original-title="Edit user">
                                             <i class="fas fa-edit"> </i>
                                         </RouterLink>
-                                        <a href="javascript:;" class="text-danger font-weight-bold text-xs"
-                                            data-toggle="tooltip" data-original-title="Edit user">
+                                        <a @click="eliminarProducto(item.id)" href="javascript:;"
+                                            class="text-danger font-weight-bold text-xs" data-toggle="tooltip"
+                                            data-original-title="Edit user">
                                             <i class="fas fa-trash"> </i>
                                         </a>
                                     </td>
@@ -191,10 +192,10 @@ import Pagination from '@/components/Pagination.vue'
 // import 'bootstrap/dist/js/bootstrap.bundle.min.js'
 import { Modal } from 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
-import { getProductoId } from '@/services/productoService'
+import { getProductoId, deleteProducto } from '@/services/productoService'
 import CarruselProducto from '@/components/CarruselProducto.vue';
 import { convertirImagen } from '@/helpers/imagenHelper';
-
+import Swal from 'sweetalert2';
 
 
 const listadoProductos = ref([]);
@@ -253,6 +254,35 @@ const abrirModal = async (idProducto) => {
     const modal = new Modal(document.querySelector('#modalProductos'))
 
     modal.show()
+
+}
+
+
+const eliminarProducto = (idProducto) => {
+
+
+    Swal.fire({
+        title: "Esta usted Seguro?",
+        text: "¡Esta acción no se puede deshacer!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Si, Eliminar!"
+    }).then((result) => {
+        if (result.isConfirmed) {
+
+
+            deleteProducto(idProducto).then(resultado => {
+                Swal.fire('Éxito', resultado.message, 'success');
+                cargarProductos()
+            })
+
+        }
+    });
+
+
+
 
 }
 

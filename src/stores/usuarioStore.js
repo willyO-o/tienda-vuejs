@@ -8,12 +8,18 @@ const useUsuarioStore = defineStore(
         const usuario = ref({})
 
         const setUsuario = (datosUsuario) => {
-            usuario.value = datosUsuario
+
+            usuario.value = { ...datosUsuario }
+        }
+
+        const deleteUsuario = () => {
+            usuario.value = {}
         }
 
         return {
             usuario,
-            setUsuario
+            setUsuario,
+            deleteUsuario
         }
 
 

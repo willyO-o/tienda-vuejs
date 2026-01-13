@@ -31,8 +31,7 @@
                                 <div class="col-lg-4 col-md-6 col-12 mt-n5">
                                     <a href="javascript:;">
                                         <div class="p-3 pe-md-0">
-                                            <img class="w-100 border-radius-md shadow-lg" src="/assets/img/team-5.jpg"
-                                                alt="image">
+                                            <img class="w-100 border-radius-md shadow-lg" src="" alt="image">
                                         </div>
                                     </a>
                                 </div>
@@ -53,8 +52,7 @@
                                 <div class="col-lg-4 col-md-6 col-12 mt-n5">
                                     <a href="javascript:;">
                                         <div class="p-3 pe-md-0">
-                                            <img class="w-100 border-radius-md shadow-lg"
-                                                src="/assets/img/bruce-mars.jpg" alt="image">
+                                            <img class="w-100 border-radius-md shadow-lg" src="" alt="image">
                                         </div>
                                     </a>
                                 </div>
@@ -77,8 +75,7 @@
                                 <div class="col-lg-4 col-md-6 col-12 mt-n5">
                                     <a href="javascript:;">
                                         <div class="p-3 pe-md-0">
-                                            <img class="w-100 border-radius-md shadow-lg"
-                                                src="/assets/img/ivana-squares.jpg" alt="image">
+                                            <img class="w-100 border-radius-md shadow-lg" src="" alt="image">
                                         </div>
                                     </a>
                                 </div>
@@ -99,8 +96,7 @@
                                 <div class="col-lg-4 col-md-6 col-12 mt-n5">
                                     <a href="javascript:;">
                                         <div class="p-3 pe-md-0">
-                                            <img class="w-100 border-radius-md shadow-lg"
-                                                src="/assets/img/ivana-square.jpg" alt="image">
+                                            <img class="w-100 border-radius-md shadow-lg" src="" alt="image">
                                         </div>
                                     </a>
                                 </div>
@@ -123,22 +119,22 @@
             <div class="container">
                 <div class="row mb-7">
                     <div class="col-lg-2 col-md-4 col-6 mb-4">
-                        <img class="w-100 opacity-7" src="/assets/img/logos/gray-logos/logo-coinbase.svg" alt="logo">
+                        <img class="w-100 opacity-7" src="" alt="logo">
                     </div>
                     <div class="col-lg-2 col-md-4 col-6 mb-4">
-                        <img class="w-100 opacity-7" src="/assets/img/logos/gray-logos/logo-nasa.svg" alt="logo">
+                        <img class="w-100 opacity-7" src="" alt="logo">
                     </div>
                     <div class="col-lg-2 col-md-4 col-6 mb-4">
-                        <img class="w-100 opacity-7" src="/assets/img/logos/gray-logos/logo-netflix.svg" alt="logo">
+                        <img class="w-100 opacity-7" src="" alt="logo">
                     </div>
                     <div class="col-lg-2 col-md-4 col-6 mb-4">
-                        <img class="w-100 opacity-7" src="/assets/img/logos/gray-logos/logo-pinterest.svg" alt="logo">
+                        <img class="w-100 opacity-7" src="" alt="logo">
                     </div>
                     <div class="col-lg-2 col-md-4 col-6 mb-4">
-                        <img class="w-100 opacity-7" src="/assets/img/logos/gray-logos/logo-spotify.svg" alt="logo">
+                        <img class="w-100 opacity-7" src="" alt="logo">
                     </div>
                     <div class="col-lg-2 col-md-4 col-6 mb-4">
-                        <img class="w-100 opacity-7" src="/assets/img/logos/gray-logos/logo-vodafone.svg" alt="logo">
+                        <img class="w-100 opacity-7" src="" alt="logo">
                     </div>
                 </div>
                 <div class="row justify-content-center text-center">
@@ -185,8 +181,7 @@
                     </div>
                     <div class="col-md-5 ms-auto">
                         <div class="position-relative">
-                            <img class="max-width-50 w-100 position-relative z-index-2" src="/assets/img/macbook.png"
-                                alt="image">
+                            <img class="max-width-50 w-100 position-relative z-index-2" src="" alt="image">
                         </div>
                     </div>
                 </div>

@@ -18,9 +18,9 @@
                 </div>
                 <ul class="navbar-nav d-flex align-items-center  justify-content-end">
                     <li class="nav-item d-flex align-items-center">
-                        <a class="btn btn-outline-primary btn-sm mb-0 me-3" target="_blank"
-                            href="https://www.creative-tim.com/builder?ref=navbar-material-dashboard">Online
-                            Builder</a>
+                        <a class="btn btn-outline-primary btn-sm mb-0 me-3 cursor-pointer" @click="cerrarSesion">
+                            Cerrar
+                            Sesion</a>
                     </li>
                     <li class="mt-1">
                         <a class="github-button" href="https://github.com/creativetimofficial/material-dashboard"
@@ -52,7 +52,7 @@
                                 <a class="dropdown-item border-radius-md" href="javascript:;">
                                     <div class="d-flex py-1">
                                         <div class="my-auto">
-                                            <img src="../assets/img/team-2.jpg" class="avatar avatar-sm  me-3 ">
+                                            <img src="" class="avatar avatar-sm  me-3 ">
                                         </div>
                                         <div class="d-flex flex-column justify-content-center">
                                             <h6 class="text-sm font-weight-normal mb-1">
@@ -70,8 +70,7 @@
                                 <a class="dropdown-item border-radius-md" href="javascript:;">
                                     <div class="d-flex py-1">
                                         <div class="my-auto">
-                                            <img src="../assets/img/small-logos/logo-spotify.svg"
-                                                class="avatar avatar-sm bg-gradient-dark  me-3 ">
+                                            <img src="" class="avatar avatar-sm bg-gradient-dark  me-3 ">
                                         </div>
                                         <div class="d-flex flex-column justify-content-center">
                                             <h6 class="text-sm font-weight-normal mb-1">
@@ -137,5 +136,34 @@
 </template>
 
 <script setup>
+
+
+import { logout } from '@/services/authService'
+
+
+import Swal from 'sweetalert2';
+
+import { useRouter } from 'vue-router';
+import useUsuarioStore from '@/stores/usuarioStore';
+
+
+const router = useRouter()
+const usuarioStore = useUsuarioStore();
+
+const cerrarSesion = async () => {
+
+    const resultado = await logout()
+
+    localStorage.removeItem('token');
+    localStorage.removeItem('refreshToken');
+
+    usuarioStore.deleteUsuario();
+
+    Swal.fire('Sesión Cerrada', 'La sesión se ha cerrado correctamente', 'success')
+
+    router.push({ name: 'Login' })
+
+}
+
 
 </script>

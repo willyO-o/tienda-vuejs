@@ -87,7 +87,12 @@
                                 </li>
 
                                 <li class="nav-item my-auto ms-3 ms-lg-0">
-                                    <RouterLink to="/login" class="btn btn-sm mb-0 me-1 bg-gradient-dark">Iniciar
+
+                                    <RouterLink v-if="usuarioStore.usuario.id" to="/admin"
+                                        class="btn btn-sm mb-0 me-1 bg-gradient-dark">
+                                        Administración
+                                    </RouterLink>
+                                    <RouterLink v-else to="/login" class="btn btn-sm mb-0 me-1 bg-gradient-dark">Iniciar
                                         Sesión
                                     </RouterLink>
                                 </li>
@@ -106,5 +111,9 @@
 <script setup>
 
 import CarritoCompras from '@/modules/public/components/CarritoCompras.vue';
+
+import useUsuarioStore from '@/stores/usuarioStore';
+
+const usuarioStore = useUsuarioStore();
 
 </script>

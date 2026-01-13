@@ -84,10 +84,12 @@
 import { reactive } from 'vue';
 import { loginValidationSchema } from '@/modules/public/schemas/loginValidationSchema'
 import { Form, Field, ErrorMessage } from 'vee-validate'
-import { login } from '@/services/authService'
+import { login, getDatosUsuario } from '@/services/authService'
 import Swal from 'sweetalert2'
 
 import { useRouter } from 'vue-router';
+
+import useUsuarioStore from '@/stores/usuarioStore';
 
 
 
@@ -95,6 +97,7 @@ import { useRouter } from 'vue-router';
 
 const router = useRouter();
 
+const usuarioStore = useUsuarioStore();
 
 
 
@@ -114,7 +117,9 @@ const iniciarSesion = async () => {
         localStorage.setItem('token', accessToken);
         localStorage.setItem('refreshToken', refreshToken);
 
+        const resultadoUsuario = await getDatosUsuario()
 
+        usuarioStore.setUsuario(resultadoUsuario);
 
         Swal.fire('Bienvenido', "Ha iniciado sesión correctamente", 'success');
 
